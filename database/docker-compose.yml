@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: kingfisher_db
+    environment:
+      POSTGRES_DB: kingfisher
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test1234
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  postgres_data:
