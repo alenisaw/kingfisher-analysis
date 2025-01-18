@@ -1,16 +1,30 @@
+version: '3.8'
+
 services:
-  postgres:
+  db:
     image: postgres:17
-    container_name: kingfisher_db
+    container_name: postgres_container
     environment:
-      POSTGRES_DB: kingfisher
-      POSTGRES_USER: test
-      POSTGRES_PASSWORD: test1234
+      POSTGRES_USER: alenish
+      POSTGRES_PASSWORD: 228228
+      POSTGRES_DB: alenish
     ports:
-      - "5432:5432"
+      - "5436:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/postgresql/data
+    restart: always
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin_container
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    restart: always
+    depends_on:
+      - db
 
 volumes:
-  postgres_data:
+  db_data:
