@@ -8,11 +8,11 @@ import os
 def analyze_data():
     # Подключение к базе данных
     db_params = {
-        'user': os.getenv('DB_USER', 'kingfisher_user'),
-        'password': os.getenv('DB_PASSWORD', 'your_strong_password'),
+        'user': os.getenv('DB_USER', 'alenish'),
+        'password': os.getenv('DB_PASSWORD', '228228'),
         'host': os.getenv('DB_HOST', 'localhost'),
-        'port': os.getenv('DB_PORT', '5432'),
-        'database': os.getenv('DB_NAME', 'kingfisher')
+        'port': os.getenv('DB_PORT', '5436'),
+        'database': os.getenv('DB_NAME', 'alenish')
     }
 
     connection_string = f"postgresql://{db_params['user']}:{db_params['password']}@{db_params['host']}:{db_params['port']}/{db_params['database']}"
