@@ -47,6 +47,7 @@ def get_products(category):
                 "price": price,
                 "description": description,
             })
+    print(products)
     return products
 
 # Сохранение данных в CSV
